@@ -1,3 +1,10 @@
+body{
+  background-color: #fafaf6;
+}
+
+h1{
+  margin: 0;
+}
 div{
-    background-color: #fafaf6;
+ background-color: #00fff0; 
 }
