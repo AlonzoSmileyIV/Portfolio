@@ -1,0 +1,500 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root{
+  --main-color: #1CA7EC;
+  --dark-theme-color: black;
+  --dark-complementary: white;
+  --light-theme-color: white;
+  --light-complementary: black;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body{
+  font-family: 'Poppins', sans-serif;
+}
+
+.max-width{
+  max-width: 1300px;
+  padding: 0 80px;
+  margin: auto;
+}
+
+div[class*="text"] span{
+  color: var(--main-color);
+}
+
+section{
+  padding: 100px 0;
+}
+
+section .header{
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+section .header h2{
+  font-size: 40px;
+  font-weight: 500;
+}
+
+section .header h3{
+  padding:0 10px;
+  color: var(--main-color);
+}
+
+
+section .header h3:before,
+section .header h3:after {
+  background-color: var(--light-complementary);
+  content: "";
+  display: inline-block;
+  height: 3px;
+  position: relative;
+  vertical-align: middle;
+  width: 40px;
+}
+
+section .header h3:before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+section .header h3:after {
+  left: 0.5em;
+  margin-right: -50%;
+}
+/************************ COMMON CSS ************************/
+.about, .services, .skills{
+  font-family:'Poppins',sans-serif;
+}
+
+.about .about-content, .services .service-content,
+.skills .skills-content{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+
+
+/************************* NAVBAR CSS **************************/
+.navbar{
+  position: fixed;
+  width: 100%;
+  padding: 30px 0;
+  font-family: 'Ubuntu', sans-serif;
+  transition: background-color 0.5s ease;
+  z-index: 999;
+}
+
+/* When it's scrolling down further*/
+.navbar.sticky{
+  padding: 15px 0;
+  background-color: var(--main-color);
+}
+
+.navbar.sticky .logo a span{
+  color: black;
+}
+
+.navbar.sticky .menu li a:hover{
+  color: black;
+}
+
+.navbar .max-width{
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar .logo a{
+  color: white;
+  font-size: 35px;
+  font-weight: 600;
+}
+
+.navbar .logo a span{
+  color: var(--main-color);
+  transition: all 0.3s ease;
+}
+
+.navbar .menu li{
+  list-style: none;
+  display: inline-block;
+}
+
+.navbar .menu li a{
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 25px;
+  transition: color 0.3s ease;
+}
+
+.navbar .menu li a:hover{
+  color: var(--main-color);
+}
+
+/*Menu button styling */
+.menu-btn{
+  color: white;
+  cursor: pointer;
+  font-size: 23px;
+  display: none;
+}
+
+/*********************** HOME SECTION CSS ************************/
+.home{
+  display: flex;
+  height: 100vh;
+  background-color: var(--dark-theme-color);
+  color: var(--dark-complementary);
+  font-family: 'Ubuntu', sans-serif;
+  min-height: 500px;
+}
+
+.home .max-width{
+  margin: auto 0 auto 40px;
+}
+
+.home .header h3{
+  background:var(--light-theme-color);
+}
+
+.home .home-content .text-1{
+  font-size: 27px;
+}
+
+.home .home-content .text-2{
+  font-size: 75px;
+  font-weight: 600;
+  margin-left: -3px;
+}
+
+.home .home-content .text-3{
+  font-size: 40px;
+  margin: 5px 0;
+}
+
+.home .home-content a{
+  display: inline-block;
+  background-color: var(--dark-theme-color);
+  cursor: pointer;
+  padding: 12px 36px;
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  color: var(--main-color);
+  font-size: 25px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.home .home-content a:hover{
+  background-color: var(--main-color);
+  color: white;
+}
+
+
+/*********************** ABOUT SECTION CSS ************************/
+
+.about-content .left{
+  width: 45%;
+}
+
+.about-content .left img{
+  height: 400px;
+  width: 400px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.about-content .right{
+  width: 55%;
+}
+
+.about-content .right .text{
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.about-content .right p {
+  text-align: justify;
+}
+
+.about-content .right a {
+  display: inline-block;
+  background-color: var(--main-color);
+  cursor: pointer;
+  padding: 10px 30px;
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  color: var(--light-theme-color);
+  font-size: 20px;
+  margin: 20px auto 0;
+
+  transition: background-color 0.3s ease;
+}
+
+.about-content .right a:hover{
+  color: var(--main-color);
+  background: none;
+}
+
+
+/********************** SERVICES CSS ***************************/
+.services{
+  background: var(--dark-theme-color);
+  color: var(--dark-complementary);
+}
+
+.services .header h3:before,
+.services .header h3:after {
+  background-color: var(--dark-complementary);
+}
+
+.services .service-content .card{
+  width: calc(33% - 20px);
+  text-align: center;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.5);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  border-right: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  padding: 20px 25px;
+  cursor: pointer;
+}
+
+.services .service-content .card .box{
+  transition: all 0.3 ease;
+}
+
+.services .service-content .card:hover {
+  background-color: var(--main-color);
+}
+
+.services .service-content .card:hover i{
+  color: var(--dark-complementary);
+}
+
+.services .service-content .card:hover .box{
+  transform: scale(1.05);
+}
+
+.service-content .card i{
+  font-size: 50px;
+  color: var(--main-color);
+  margin-bottom: 10px;
+}
+
+.service-content .card .text{
+  font-size: 25px;
+  font-weight: 500;
+  margin: 10px 0 7px 0;
+}
+
+/********************** SKILLS CSS ***************************/
+.skills{
+  background: var(--light-theme-color);
+  color: var(--light-complementary);
+}
+
+.skills .skills-content .column{
+  width: calc(50% - 30px);
+}
+
+.skills .skills-content .left .text{
+  color: var(--main-color);
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.skills .skills-content .right .bars{
+  margin-bottom: 15px;
+}
+
+.skills .skills-content .right .info{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.skills .skills-content .right span{
+  font-weight: 500;
+  font-size: 18px;
+}
+.skills-content .right .line{
+  height: 5px;
+  width: 100%;
+  background: lightgrey;
+  position: relative;
+}
+
+.skills-content .right .line::before{
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  left: 0;
+  top: 0;
+  background-color: var(--main-color);
+}
+
+/***************** RESPONSIVE MEDIA QUERIES **********************/
+@media (max-width: 1300px){
+
+  .home .max-width{
+    margin-left: 0px;
+  }
+
+}
+
+@media (max-width: 1104px){
+
+  .about .about-content .left img{
+    height: 350px;
+    width: 350px;
+  }
+
+}
+
+@media (max-width: 991px){
+
+  .max-width{
+    padding: 0 50px;
+  }
+
+}
+
+@media (max-width: 947px){
+
+  .max-width{
+    padding: 0 50px;
+    max-width: 800px;
+  }
+
+  .menu-btn{
+    display: block;
+    z-index: 999;
+  }
+
+  .navbar .menu{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: var(--main-color);
+    left: 0;
+    top: -100%;
+    text-align: center;
+    padding-top: 80px;
+    transition: all 0.3s ease;
+  }
+
+  .navbar .menu.active{
+    top: 0;
+  }
+
+  .menu-btn i.active:before{
+    content:"\f00d";
+  }
+
+  .navbar .menu li{
+    display: block;
+  }
+
+  .navbar .menu li a{
+    display: inline-block;
+    margin: 20px 0;
+    font-size: 25px;
+  }
+
+  .navbar .menu li a:hover{
+    color: black;
+  }
+
+  .home .home-content .text-2{
+    font-size: 70px;
+  }
+
+  .home .home-content .text-3{
+    font-size: 35px;
+  }
+
+  .home .home-content a{
+    font-size: 23px;
+    padding: 10px 30px;
+  }
+
+  .about .about-content .column{
+    width: 100%;
+  }
+
+  .about .about-content .left{
+   display: flex;
+   justify-content: center;
+    margin: 0 auto 60px;
+  }
+
+  .about .about-content .right {
+    flex: 100%;
+  }
+
+  .services .service-content .card{
+    width: calc(50% - 10px);
+    margin-bottom: 20px;
+  }
+
+  .services .service-content .card:last-child{
+    width: 100%;
+  }
+
+  .max-width{
+    max-width: 800px;
+  }
+
+}
+
+@media (max-width: 690px){
+
+  .max-width{
+    padding: 0 23px;
+  }
+
+  .home .home-content .text-2{
+    font-size: 60px;
+  }
+
+  .home .home-content .text-3{
+    font-size: 32px;
+  }
+
+  .home .home-content a{
+    font-size: 20px;
+  }
+
+  .services .service-content .card{
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px){
+  .home .home-content .text-2{
+    font-size: 50px;
+  }
+
+  .home .home-content .text-3{
+    font-size: 27px;
+  }
+
+}
