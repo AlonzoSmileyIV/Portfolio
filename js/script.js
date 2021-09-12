@@ -7,6 +7,9 @@ $(document).ready(function(){
   let react_skill_per = 50;
   let node_skill_per = 75;
 
+  let currentYear = new Date().getFullYear();
+  $('.this-year').text(currentYear);
+
   $('.bars .html').closest('.bars').find('.percentage').text(html_skill_per + '%');
   $('.bars .html').append("<style>.html::before{ width:" + html_skill_per + "% }</style>");
 
@@ -35,10 +38,67 @@ $(document).ready(function(){
     } else {
       $('.navbar').removeClass('sticky');
     }
+
+    if(this.scrollY > 500){
+      $('.scroll-up-btn').addClass('show');
+    } else{
+      $('.scroll-up-btn').removeClass('show');
+    }
+
+    if(this.scrollY < ($(document).height() * 0.90) -$(window).height()){
+      $('.scroll-down-btn').addClass('show');
+    } else{
+      $('.scroll-down-btn').removeClass('show');
+    }
   });
 
   $('.menu-btn').click(function(){
     $('.navbar .menu').toggleClass("active");
     $('.menu-btn i').toggleClass("active");
   });
+
+  // typing animation script
+  var typed = new Typed(".typing", {
+    strings: ["Developer", "Freelancer", "Designer", "Bartender", "Dancer", "Brother", "Friend"],
+    typeSpeed: 100,
+    backSpeed: 60,
+    loop: true
+  });
+
+  var typed = new Typed(".typing-2", {
+    strings: ["Developer", "Freelancer", "Designer", "Bartender", "Dancer", "Brother", "Friend"],
+    typeSpeed: 100,
+    backSpeed: 60,
+    loop: true
+  });
+
+  // Owl carousel script
+  $('.carousel').owlCarousel({
+    margin: 20,
+    loop: true,
+    autoplayTimeOut: 2000,
+    autoplayHoverPause: true,
+    responsive: {
+      0:{
+      items: 1,
+      nav: false
+      },
+      600:{
+      items: 2,
+      nav: false
+      },
+      1000:{
+      items: 3,
+      nav: false
+      }
+    }
+  });
+});
+
+$('.scroll-up-btn').click(function(){
+      $("html, body").animate({ scrollTop: "0" });
+});
+
+$('.scroll-down-btn').click(function(){
+ $("html, body").animate({scrollTop: (($(document).height()) - $(window).height()).toString()});
 });

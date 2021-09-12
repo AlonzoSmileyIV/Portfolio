@@ -3,6 +3,7 @@
 
 :root{
   --main-color: #1CA7EC;
+  --main-darker: #1193d4;
   --dark-theme-color: black;
   --dark-complementary: white;
   --light-theme-color: white;
@@ -14,6 +15,10 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
+}
+
+html{
+  scroll-behavior: smooth;
 }
 
 body{
@@ -74,12 +79,27 @@ section .header h3:after {
   margin-right: -50%;
 }
 /************************ COMMON CSS ************************/
-.about, .services, .skills{
+.about, .services, .skills, .projects, .contact, footer{
   font-family:'Poppins',sans-serif;
 }
 
-.about .about-content, .services .service-content,
-.skills .skills-content{
+.services, .projects{
+  background: var(--dark-theme-color);
+  color: var(--dark-complementary);
+}
+
+.services .header h3:before,
+.services .header h3:after,
+.projects .header h3:before,
+.projects .header h3:after{
+  background-color: var(--dark-complementary);
+}
+
+.about .about-content,
+.services .service-content,
+.skills .skills-content,
+.projects .projects-content,
+.contact .contact-content{
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -155,6 +175,7 @@ section .header h3:after {
 }
 
 .navbar .menu li a{
+  display: block;
   color: white;
   font-size: 18px;
   font-weight: 500;
@@ -172,6 +193,42 @@ section .header h3:after {
   cursor: pointer;
   font-size: 23px;
   display: none;
+}
+
+/********** BUTTON SCROLL UP *************/
+.scroll-up-btn, .scroll-down-btn{
+  position: fixed;
+  height: 45px;
+  width: 42px;
+  background: var(--main-color);
+  right: 30px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 45px;
+  color: white;
+  z-index: 9999;
+  font-size: 30px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.scroll-up-btn.show{
+  bottom: 60px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+.scroll-down-btn.show{
+  bottom: 10px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.scroll-up-btn i{
+  text-align: center;
 }
 
 /*********************** HOME SECTION CSS ************************/
@@ -207,7 +264,7 @@ section .header h3:after {
   margin: 5px 0;
 }
 
-.home .home-content a{
+.home .home-content a, .projects a{
   display: inline-block;
   background-color: var(--dark-theme-color);
   cursor: pointer;
@@ -255,15 +312,6 @@ section .header h3:after {
 
 
 /********************** SERVICES CSS ***************************/
-.services{
-  background: var(--dark-theme-color);
-  color: var(--dark-complementary);
-}
-
-.services .header h3:before,
-.services .header h3:after {
-  background-color: var(--dark-complementary);
-}
 
 .services .service-content .card{
   width: calc(33% - 20px);
@@ -357,6 +405,225 @@ section .header h3:after {
   left: 0;
   top: 0;
   background-color: var(--main-color);
+}
+
+/******************* PROJECTS SECTION STYLING *******************/
+.projects .carousel .card, .projects .current-project .card{
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.5);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  border-right: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  padding: 25px 35px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.projects .carousel .card .text, .projects .current-project .card .text{
+  color: var(--main-color);
+  font-size: 20px;
+  font-weight: 500;
+  margin: 10px 0 7px 0;
+}
+
+.projects .carousel .card:hover , .projects .current-project .card:hover{
+  background-color: var(--main-color);
+}
+
+.projects .carousel .card:hover .box , .projects .current-project .card:hover .box{
+  transform: scale(1.05);
+}
+
+.projects .carousel .card:hover .text, .projects .current-project .card:hover .text{
+  color: var(--dark-complementary);
+}
+
+.projects .carousel .card .box, .projects .current-project .card .box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.projects .carousel .card img, .projects .current-project .card img{
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid var(--main-color);
+  transition: all 0.3s ease;
+}
+
+.projects .carousel .card:hover img, .projects .current-project .card:hover img{
+  border-color: var(--dark-complementary);
+}
+
+.owl-dots{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.owl-dot{
+  height: 13px;
+  width: 13px;
+  outline: none !important;
+  border-radius: 50%;
+  border: 2px solid var(--main-color) !important;
+  margin: 0 5px;
+  transition: all 0.3s ease;
+}
+
+
+.owl-dot.active{
+  width: 35px;
+  border-radius: 14px;
+}
+
+.owl-dot.active, .owl-dot:hover{
+  background-color: var(--main-color) !important;
+}
+
+.projects .current-project{
+  margin-top: 40px;
+}
+
+.projects a:hover{
+  background-color: var(--dark-complementary);
+  color: var(--dark-theme-color);
+}
+
+
+/************************* CONTACT CSS ***********************/
+.contact .contact-content .column{
+  width: calc(50% - 30px);
+}
+
+.contact .contact-content .text{
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--main-color);
+}
+
+.contact .contact-content .left p{
+  text-align: justify;
+}
+
+
+.contact .contact-content .left .icons{
+  margin: 10px 0;
+}
+
+.contact .contact-content .row{
+  display: flex;
+  height: 65px;
+  align-items: center;
+}
+
+.contact .contact-content .row .info{
+  margin-left: 30px;
+}
+
+.contact .contact-content .row i{
+  font-size: 30px;
+  color: var(--main-color);
+}
+
+.contact .contact-content .info .head{
+  font-weight: 500;
+}
+
+.contact .contact-content .info .sub-title{
+  opacity: 0.75;
+}
+
+.contact .right form .fields{
+  display: flex;
+}
+.contact .right form .field,
+.contact .right form .fields .field{
+  height: 45px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.contact .right form .name{
+  margin-right: 10px;
+}
+
+.contact .right form .email{
+  margin-left: 10px;
+}
+
+.contact .right form .field input,
+.contact .right form .textarea textarea{
+  height: 100%;
+  width: 100%;
+  border: 1px solid lightgrey;
+  border-radius: 6px;
+  outline: none;
+  padding: 0 15px;
+  font-size: 17px;
+  transition: all 0.5s ease;
+}
+
+.contact .right form .textarea textarea{
+  resize: none;
+  padding-top: 10px;
+}
+
+.contact .right form .textarea{
+  height: 80px;
+  width: 100%;
+}
+
+.contact .right form .button{
+  height: 50px;
+  width: 100%;
+}
+
+.contact .right form .button button{
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--main-color);
+  background: var(--main-color);
+  color: var(--light-theme-color);
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.contact .right form .button button:hover{
+  background: none;
+  color: var(--main-color);
+}
+
+.contact .right form .field input:hover,
+.contact .right form .textarea textarea:hover,
+.contact .right form .field input:focus,
+.contact .right form .textarea textarea:focus,
+.contact .right form .field input:valid,
+.contact .right form .textarea textarea:valid{
+  border-color: var(--main-color);
+}
+
+/******************** FOOTER CSS *****************/
+footer{
+  background: var(--dark-theme-color);
+  color: var(--dark-complementary);
+  padding: 20px 23px;
+}
+
+footer span a{
+  color: var(--main-color);
+  text-decoration: none;
+}
+
+footer span a:hover{
+  text-decoration: underline;
 }
 
 /***************** RESPONSIVE MEDIA QUERIES **********************/
@@ -471,7 +738,7 @@ section .header h3:after {
     max-width: 800px;
   }
 
-  .skills .skills-content .column{
+  .skills .skills-content .column, .contact .contact-content .column{
     width: 100%;
     margin-bottom: 35px;
   }
